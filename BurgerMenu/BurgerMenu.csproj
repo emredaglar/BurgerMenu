@@ -130,8 +130,16 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminLayoutController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProfilesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProfilessController.cs" />
     <Compile Include="Context\BurgerMenuContext.cs" />
+    <Compile Include="Controllers\Default1Controller.cs" />
+    <Compile Include="Controllers\ErrorPageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginsController.cs" />
+    <Compile Include="Controllers\LoginssController.cs" />
+    <Compile Include="Controllers\RegistersController.cs" />
     <Compile Include="Entities\Admin.cs" />
     <Compile Include="Entities\Category.cs" />
     <Compile Include="Entities\DealOfTheDay.cs" />
@@ -143,6 +151,18 @@
     <Compile Include="Migrations\202410081118179_mig1.cs" />
     <Compile Include="Migrations\202410081118179_mig1.Designer.cs">
       <DependentUpon>202410081118179_mig1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202410151500531_mig8.cs" />
+    <Compile Include="Migrations\202410151500531_mig8.Designer.cs">
+      <DependentUpon>202410151500531_mig8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202410151610438_mig9.cs" />
+    <Compile Include="Migrations\202410151610438_mig9.Designer.cs">
+      <DependentUpon>202410151610438_mig9.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202410151632300_UpdatedMigration.cs" />
+    <Compile Include="Migrations\202410151632300_UpdatedMigration.Designer.cs">
+      <DependentUpon>202410151632300_UpdatedMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -347,6 +367,10 @@
     <Content Include="burger-master\Menu.html" />
     <Content Include="burger-master\readme.txt" />
     <Content Include="burger-master\single-blog.html" />
+    <Content Include="colorlib-error-404-10\css\style.css" />
+    <Content Include="colorlib-error-404-10\img\bg.jpg" />
+    <Content Include="colorlib-error-404-10\index.html" />
+    <Content Include="colorlib-error-404-10\readme.txt" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -363,6 +387,44 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="eatwell-master\.gitattributes" />
+    <Content Include="eatwell-master\css\ajax-loader.gif" />
+    <Content Include="eatwell-master\css\animate.css" />
+    <Content Include="eatwell-master\css\bootstrap-datepicker.css" />
+    <Content Include="eatwell-master\css\bootstrap.min.css" />
+    <Content Include="eatwell-master\css\icomoon.css" />
+    <Content Include="eatwell-master\css\jquery.timepicker.css" />
+    <Content Include="eatwell-master\css\magnific-popup.css" />
+    <Content Include="eatwell-master\css\open-iconic-bootstrap.min.css" />
+    <Content Include="eatwell-master\css\owl.carousel.min.css" />
+    <Content Include="eatwell-master\css\owl.theme.default.min.css" />
+    <Content Include="eatwell-master\css\style.css" />
+    <Content Include="eatwell-master\fonts\icomoon\icomoon.svg" />
+    <Content Include="eatwell-master\fonts\open-iconic\open-iconic.svg" />
+    <Content Include="eatwell-master\images\about_img_1.jpg" />
+    <Content Include="eatwell-master\images\bg_3.jpg" />
+    <Content Include="eatwell-master\images\loc.png" />
+    <Content Include="eatwell-master\images\menu_1.jpg" />
+    <Content Include="eatwell-master\images\menu_2.jpg" />
+    <Content Include="eatwell-master\images\menu_3.jpg" />
+    <Content Include="eatwell-master\images\offer_1.jpg" />
+    <Content Include="eatwell-master\images\offer_2.jpg" />
+    <Content Include="eatwell-master\images\offer_3.jpg" />
+    <Content Include="eatwell-master\images\reservation_1.jpg" />
+    <Content Include="eatwell-master\index.html" />
+    <Content Include="eatwell-master\js\bootstrap-datepicker.js" />
+    <Content Include="eatwell-master\js\bootstrap.min.js" />
+    <Content Include="eatwell-master\js\google-map.js" />
+    <Content Include="eatwell-master\js\jquery-3.2.1.min.js" />
+    <Content Include="eatwell-master\js\jquery.animateNumber.min.js" />
+    <Content Include="eatwell-master\js\jquery.easing.1.3.js" />
+    <Content Include="eatwell-master\js\jquery.magnific-popup.min.js" />
+    <Content Include="eatwell-master\js\jquery.min.js" />
+    <Content Include="eatwell-master\js\jquery.timepicker.min.js" />
+    <Content Include="eatwell-master\js\jquery.waypoints.min.js" />
+    <Content Include="eatwell-master\js\main.js" />
+    <Content Include="eatwell-master\js\owl.carousel.min.js" />
+    <Content Include="eatwell-master\js\popper.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -1860,6 +1922,21 @@
     <Content Include="Areas\Admin\Views\AdminLayout\PartialNavbar.cshtml" />
     <Content Include="Areas\Admin\Views\AdminLayout\PartialSidebar.cshtml" />
     <Content Include="Areas\Admin\Views\Category\CategoryList.cshtml" />
+    <Content Include="Areas\Admin\Views\Profiles\MyProfilList.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\CreateProduct.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\ProductList.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\UpdateProduct.cshtml" />
+    <Content Include="Areas\Admin\Views\Profiless\MyProfileLists.cshtml" />
+    <Content Include="eatwell-master\fonts\icomoon\icomoon.eot" />
+    <Content Include="eatwell-master\fonts\icomoon\icomoon.ttf" />
+    <Content Include="eatwell-master\fonts\icomoon\icomoon.woff" />
+    <Content Include="eatwell-master\fonts\open-iconic\open-iconic.eot" />
+    <Content Include="eatwell-master\fonts\open-iconic\open-iconic.otf" />
+    <Content Include="eatwell-master\fonts\open-iconic\open-iconic.ttf" />
+    <Content Include="eatwell-master\fonts\open-iconic\open-iconic.woff" />
+    <Content Include="eatwell-master\images\.DS_Store" />
+    <Content Include="eatwell-master\prepros-6.config" />
+    <Content Include="eatwell-master\scss\style.scss" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -1885,6 +1962,19 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Logins\Index.cshtml" />
+    <Content Include="Views\Loginss\Index.cshtml" />
+    <Content Include="Views\Registers\Index.cshtml" />
+    <Content Include="Views\Default1\Index.cshtml" />
+    <Content Include="Views\Default1\PartialAbout.cshtml" />
+    <Content Include="Views\Default1\PartialFooter.cshtml" />
+    <Content Include="Views\Default1\PartialGallery.cshtml" />
+    <Content Include="Views\Default1\PartialHead.cshtml" />
+    <Content Include="Views\Default1\PartialMenu.cshtml" />
+    <Content Include="Views\Default1\PartialNavbar.cshtml" />
+    <Content Include="Views\Default1\PartialScripts.cshtml" />
+    <Content Include="Views\Default1\TodaysOffer.cshtml" />
+    <Content Include="Views\ErrorPage\Page404.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1926,6 +2016,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202410081118179_mig1.resx">
       <DependentUpon>202410081118179_mig1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410151500531_mig8.resx">
+      <DependentUpon>202410151500531_mig8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410151610438_mig9.resx">
+      <DependentUpon>202410151610438_mig9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410151632300_UpdatedMigration.resx">
+      <DependentUpon>202410151632300_UpdatedMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

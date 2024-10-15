@@ -1,0 +1,18 @@
+﻿@model BurgerMenu.Entities.Admin
+@{
+    Layout = null;
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<div class="container">
+    <br /><br />
+    <div class="alert alert-info">Burger Admin Giriş Sayfası</div>
+    <form method="post">
+        <label>Kullanıcı Adınız</label>
+        @Html.TextBoxFor(x => x.UserName, new { @class = "form-control" })
+        <br />
+        <label>Şifreniz</label>
+        @Html.PasswordFor(x => x.Password, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-primary">Giriş Yap</button>
+    </form>
+</div>
