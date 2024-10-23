@@ -1,0 +1,29 @@
+﻿@model BurgerMenu.Entities.Message
+
+@{
+    ViewBag.Title = "NewMessage";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Yeni Mesaj Sayfası</h4>
+            <br />
+
+            <form method="post">
+                <label>Alıcı Email Adresi</label>
+                @Html.TextBoxFor(x => x.ReceiverEmail, new { @class = "form-control" })
+                <br />
+                <label>Konu</label>
+                @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+                <br />
+
+                <label>Mesajınız</label>
+                @Html.TextAreaFor(x => x.Content, 4, 0, new { @class = "form-control" })
+                <br />
+                <button class="btn btn-info">Mesajı Gönder</button>
+            </form>
+        </div>
+    </div>
+</div>

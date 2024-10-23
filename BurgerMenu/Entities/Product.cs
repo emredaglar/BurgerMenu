@@ -11,7 +11,6 @@ namespace BurgerMenu.Entities
     {
         public int ProductId { get; set; }
         [StringLength(100)]
-        public string CategoryName { get; set; }
         public string ProductName { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
@@ -19,5 +18,7 @@ namespace BurgerMenu.Entities
         [ForeignKey("Category")]
         public int CategoryId { get; set; }
         public virtual Category Category { get; set; }
+
+        public bool? DealofTheDay { get; set; }
     }
 }

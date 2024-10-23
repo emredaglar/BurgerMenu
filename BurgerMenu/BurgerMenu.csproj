@@ -130,20 +130,27 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminLayoutController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MessageController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProfilesController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProfilessController.cs" />
     <Compile Include="Context\BurgerMenuContext.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\Default1Controller.cs" />
     <Compile Include="Controllers\ErrorPageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginsController.cs" />
     <Compile Include="Controllers\LoginssController.cs" />
     <Compile Include="Controllers\RegistersController.cs" />
+    <Compile Include="Controllers\ReservationController.cs" />
+    <Compile Include="Entities\About.cs" />
     <Compile Include="Entities\Admin.cs" />
     <Compile Include="Entities\Category.cs" />
+    <Compile Include="Entities\Contact.cs" />
     <Compile Include="Entities\DealOfTheDay.cs" />
+    <Compile Include="Entities\Message.cs" />
     <Compile Include="Entities\Product.cs" />
+    <Compile Include="Entities\Reservation.cs" />
     <Compile Include="Entities\Testimonial.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -163,6 +170,38 @@
     <Compile Include="Migrations\202410151632300_UpdatedMigration.cs" />
     <Compile Include="Migrations\202410151632300_UpdatedMigration.Designer.cs">
       <DependentUpon>202410151632300_UpdatedMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202410181121223_mig10.cs" />
+    <Compile Include="Migrations\202410181121223_mig10.Designer.cs">
+      <DependentUpon>202410181121223_mig10.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202410181158537_mig11.cs" />
+    <Compile Include="Migrations\202410181158537_mig11.Designer.cs">
+      <DependentUpon>202410181158537_mig11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202410181248238_mig13.cs" />
+    <Compile Include="Migrations\202410181248238_mig13.Designer.cs">
+      <DependentUpon>202410181248238_mig13.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202410221112028_mig14.cs" />
+    <Compile Include="Migrations\202410221112028_mig14.Designer.cs">
+      <DependentUpon>202410221112028_mig14.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202410231010550_mig15.cs" />
+    <Compile Include="Migrations\202410231010550_mig15.Designer.cs">
+      <DependentUpon>202410231010550_mig15.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202410231014048_mig16.cs" />
+    <Compile Include="Migrations\202410231014048_mig16.Designer.cs">
+      <DependentUpon>202410231014048_mig16.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202410231204540_mig17.cs" />
+    <Compile Include="Migrations\202410231204540_mig17.Designer.cs">
+      <DependentUpon>202410231204540_mig17.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202410231221248_mig18.cs" />
+    <Compile Include="Migrations\202410231221248_mig18.Designer.cs">
+      <DependentUpon>202410231221248_mig18.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1937,6 +1976,9 @@
     <Content Include="eatwell-master\images\.DS_Store" />
     <Content Include="eatwell-master\prepros-6.config" />
     <Content Include="eatwell-master\scss\style.scss" />
+    <Content Include="Areas\Admin\Views\Message\InBox.cshtml" />
+    <Content Include="Areas\Admin\Views\Message\SendBox.cshtml" />
+    <Content Include="Areas\Admin\Views\Message\NewMessage.cshtml" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -1959,9 +2001,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Logins\Index.cshtml" />
     <Content Include="Views\Loginss\Index.cshtml" />
     <Content Include="Views\Registers\Index.cshtml" />
@@ -1975,6 +2014,11 @@
     <Content Include="Views\Default1\PartialScripts.cshtml" />
     <Content Include="Views\Default1\TodaysOffer.cshtml" />
     <Content Include="Views\ErrorPage\Page404.cshtml" />
+    <Content Include="Views\Default1\PartialCategory.cshtml" />
+    <Content Include="Views\Default1\PartialMap.cshtml" />
+    <Content Include="Views\Default1\PartialContact.cshtml" />
+    <Content Include="Views\Contact\PartialContactt.cshtml" />
+    <Content Include="Views\Reservation\PartialReservationn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2016,15 +2060,41 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202410081118179_mig1.resx">
       <DependentUpon>202410081118179_mig1.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202410151500531_mig8.resx">
       <DependentUpon>202410151500531_mig8.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202410151610438_mig9.resx">
       <DependentUpon>202410151610438_mig9.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202410151632300_UpdatedMigration.resx">
       <DependentUpon>202410151632300_UpdatedMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410181121223_mig10.resx">
+      <DependentUpon>202410181121223_mig10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410181158537_mig11.resx">
+      <DependentUpon>202410181158537_mig11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410181248238_mig13.resx">
+      <DependentUpon>202410181248238_mig13.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410221112028_mig14.resx">
+      <DependentUpon>202410221112028_mig14.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410231010550_mig15.resx">
+      <DependentUpon>202410231010550_mig15.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410231014048_mig16.resx">
+      <DependentUpon>202410231014048_mig16.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410231204540_mig17.resx">
+      <DependentUpon>202410231204540_mig17.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410231221248_mig18.resx">
+      <DependentUpon>202410231221248_mig18.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

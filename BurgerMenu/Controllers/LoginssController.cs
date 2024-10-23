@@ -23,7 +23,7 @@ namespace BurgerMenu.Controllers
             var values = context.Admins.FirstOrDefault(x => x.UserName == admin.UserName && x.Password == admin.Password);
             if (values != null)
             {
-                FormsAuthentication.SetAuthCookie(values.UserName, false);
+                FormsAuthentication.SetAuthCookie(values.UserName, true);
                 Session["x"] = values.UserName.ToString();
                 return RedirectToAction("ProductList", "Products", new { area = "Admin" });
             }
