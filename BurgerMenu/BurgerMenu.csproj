@@ -141,6 +141,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginsController.cs" />
     <Compile Include="Controllers\LoginssController.cs" />
+    <Compile Include="Controllers\PriveteController.cs" />
     <Compile Include="Controllers\RegistersController.cs" />
     <Compile Include="Controllers\ReservationController.cs" />
     <Compile Include="Entities\About.cs" />
@@ -2034,6 +2035,7 @@
     <Folder Include="regal\.git\objects\pack\" />
     <Folder Include="regal\.git\refs\tags\" />
     <Folder Include="regal\template\" />
+    <Folder Include="Views\Privete\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
