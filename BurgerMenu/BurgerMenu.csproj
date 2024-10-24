@@ -2025,6 +2025,7 @@
     <Content Include="Views\Reservation\PartialReservationn.cshtml" />
     <Content Include="Views\Default1\PartialReservation.cshtml" />
     <Content Include="Views\Contact\aa.cshtml" />
+    <Content Include="Views\Contact\aaa.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
