@@ -203,6 +203,10 @@
     <Compile Include="Migrations\202410231221248_mig18.Designer.cs">
       <DependentUpon>202410231221248_mig18.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202410240903173_mig19.cs" />
+    <Compile Include="Migrations\202410240903173_mig19.Designer.cs">
+      <DependentUpon>202410240903173_mig19.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -2019,6 +2023,7 @@
     <Content Include="Views\Default1\PartialContact.cshtml" />
     <Content Include="Views\Contact\PartialContactt.cshtml" />
     <Content Include="Views\Reservation\PartialReservationn.cshtml" />
+    <Content Include="Views\Default1\PartialReservation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2095,6 +2100,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202410231221248_mig18.resx">
       <DependentUpon>202410231221248_mig18.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410240903173_mig19.resx">
+      <DependentUpon>202410240903173_mig19.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

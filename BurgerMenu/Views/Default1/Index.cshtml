@@ -22,8 +22,45 @@
 
 
     <!-- END section -->
+    <section class="site-section bg-light" id="section-contact">
+        <div class="container">
+            <div class="row">
 
-    @Html.Action("PartialContactt", "Contact")
+                <div class="col-md-12 text-center mb-5 site-animate">
+                    <h2 class="display-4">Bizimle İletişime Geçin</h2>
+                    <div class="row justify-content-center">
+                        <div class="col-md-7">
+                            <p class="lead">@ViewBag.subtitle</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-7 mb-5 site-animate">
+                    <form action="" method="post">
+                        <div class="form-group">
+                            <label for="name" class="sr-only">Name</label>
+                            <input type="text" class="form-control" id="name" name="Name" placeholder="Adınız">
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="sr-only">Email</label>
+                            <input type="text" class="form-control" id="email" name="Email" placeholder="Email Adresiniz">
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="sr-only">Message</label>
+                            <textarea name="MessageDetail" id="message" cols="30" rows="10" class="form-control" placeholder="Mesajınız"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary btn-lg" value="Gönder">
+                        </div>
+                    </form>
+                </div>
+                @Html.Action("PartialContact", "Default1")
+
+            </div>
+        </div>
+    </section>
+
+    @*@Html.Action("PartialContactt", "Contact")*@
     <div id="map">@Html.Action("PartialMap", "Default1")</div>
     <!-- END section -->
 

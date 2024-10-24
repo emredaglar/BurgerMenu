@@ -13,7 +13,18 @@ namespace BurgerMenu.Controllers
         BurgerMenuContext context=new BurgerMenuContext();
         public ActionResult Index()
         {
+            ViewBag.subtitle=context.Abouts.Select(x=>x.Subtitle).FirstOrDefault();
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Index(Contact contact)
+        {
+            
+            contact.IsRead = false;
+            context.Contacts.Add(contact);
+            context.SaveChanges();
+            return RedirectToAction("Index");
         }
         public PartialViewResult PartialHead()
         {
@@ -65,6 +76,26 @@ namespace BurgerMenu.Controllers
         public PartialViewResult PartialMap()
         {
             return PartialView();
+        }
+        [HttpGet]
+        public PartialViewResult PartialReservation()
+        {
+            return PartialView();
+        }
+
+        [HttpPost]
+        public PartialViewResult PartialReservation(Reservation reservation)
+        {
+            reservation.ReservationStatus = "Onay Bekleniyor";
+            reservation.ReservationDate = DateTime.Now;
+            context.Reservations.Add(reservation);
+            context.SaveChanges();
+            return PartialView();
+        }
+        public PartialViewResult PartialContact()
+        {
+            var values = context.Abouts.ToList();
+            return PartialView(values);
         }
     }
 }
