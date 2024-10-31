@@ -1,0 +1,29 @@
+﻿@model BurgerMenu.Entities.About
+@{
+    ViewBag.Title = "CreateAbout";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>Yeni Hakkımızda Girişi</h2>
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title" Yeni Hakkımızda Girişi></h4>
+
+            <form method="post">
+                <label>Üst Başlık</label>
+                @Html.TextBoxFor(x => x.Subtitle, new { @class = "form-control" })
+                <br />
+                <label>Başlık</label>
+                @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+                <br />
+                <label>Açıklama</label>
+                @Html.TextAreaFor(x => x.Description, 10, 0, new { @class = "form-control" })
+                <br />
+                <button class="btn btn-info">Ekle</button>
+            </form>
+        </div>
+    </div>
+</div>
+

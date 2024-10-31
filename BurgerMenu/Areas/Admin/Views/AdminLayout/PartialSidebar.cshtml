@@ -4,7 +4,7 @@
             <img src="/regal/images/faces/face28.png">
         </div>
         <div class="user-name">
-            Murat Yücedağ
+            Emre Dağlar
         </div>
         <div class="user-designation">
             Yazılım Geliştirici
@@ -18,29 +18,41 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="../../pages/forms/basic_elements.html">
+            <a class="nav-link" href="/Admin/Category/CategoryList/">
                 <i class="icon-file menu-icon"></i>
                 <span class="menu-title">Kategoriler</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="../../pages/charts/chartjs.html">
+            <a class="nav-link" href="/Admin/Products/ProductList/">
                 <i class="icon-pie-graph menu-icon"></i>
                 <span class="menu-title">Ürünler</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="../../pages/tables/basic-table.html">
+            <a class="nav-link" href="/Admin/Reservation/ReservationList">
                 <i class="icon-command menu-icon"></i>
                 <span class="menu-title">Rezervasyonlar</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="../../pages/icons/feather-icons.html">
+            <a class="nav-link" href="#" onclick="toggleSubmenu(event, 'messages-submenu')">
                 <i class="icon-help menu-icon"></i>
                 <span class="menu-title">Mesajlar</span>
+                <i class="menu-arrow-icon" id="arrow-icon" style="margin-left: auto;">&#9660;</i> <!-- Aşağı ok ikonu -->
             </a>
+            <!-- Alt menü -->
+            <ul class="nav sub-menu" id="messages-submenu" style="display: none;">
+                <li class="nav-item">
+                    <a class="nav-link" href="/Admin/Message/InBox">Gelen Kutusu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Admin/Message/SendBox">Giden Kutusu</a>
+                </li>
+            </ul>
         </li>
+
+
         <li class="nav-item">
             <a class="nav-link" href="../../pages/icons/feather-icons.html">
                 <i class="icon-help menu-icon"></i>
@@ -91,3 +103,27 @@
         </li>
     </ul>
 </nav>
+<script>
+    function toggleSubmenu(event, submenuId) {
+        event.preventDefault(); // Menüye tıklandığında sayfa yenilemesini engelle
+        var submenu = document.getElementById(submenuId);
+        var arrowIcon = document.getElementById("arrow-icon");
+
+        // Alt menüyü aç/kapat
+        if (submenu.style.display === "none" || submenu.style.display === "") {
+            submenu.style.display = "block";
+            arrowIcon.innerHTML = "&#9650;"; // Yukarı ok ikonu
+        } else {
+            submenu.style.display = "none";
+            arrowIcon.innerHTML = "&#9660;"; // Aşağı ok ikonu
+        }
+    }
+
+    // Alt menü öğelerine tıklamayı yönet
+    document.querySelectorAll(".sub-menu .nav-link").forEach(function (link) {
+        link.addEventListener("click", function (event) {
+            event.stopPropagation(); // Alt menü öğesine tıklandığında alt menü kapanmaz
+        });
+    });
+</script>
+

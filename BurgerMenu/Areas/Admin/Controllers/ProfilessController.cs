@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace BurgerMenu.Areas.Admin.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class ProfilessController : Controller
     {
         // GET: Admin/Profiless

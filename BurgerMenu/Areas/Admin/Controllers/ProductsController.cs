@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace BurgerMenu.Areas.Admin.Controllers
 {
-   // [Authorize]
+    [Authorize]
     public class ProductsController : Controller
     {
         BurgerMenuContext context = new BurgerMenuContext();

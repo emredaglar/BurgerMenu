@@ -1,0 +1,46 @@
+﻿@model List<BurgerMenu.Entities.About>
+@{
+    ViewBag.Title = "AboutList";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+<br />
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Hakkımızda</h4>
+            <p class="card-description">
+            </p>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Hakkımızda ID</th>
+                            <th>Üst Başlık</th>
+                            <th>Başlık</th>
+                            <th>Açıklama</th>
+                            <th>Sil</th>
+                            <th>Güncelle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.AboutId</td>
+                                <td>@item.About1</td>
+                                <td>@item.About2</td>
+                                <td>@item.Description</td>
+                                <td><a href="@Url.Action("DeleteAbout", "About", new { area = "Admin", id = item.AboutId })" class="btn btn-danger">Sil</a></td>
+                                <td><a href="@Url.Action("UpdateAbout", "About", new { area = "Admin", id = item.AboutId })" class="btn btn-success">Güncelle</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <br />
+                <a href="@Url.Action("CreateAbout", "About", new { area = "Admin" })" class="btn btn-primary">Yeni Hakkımızda Ekle</a>
+
+            </div>
+        </div>
+    </div>
+</div>

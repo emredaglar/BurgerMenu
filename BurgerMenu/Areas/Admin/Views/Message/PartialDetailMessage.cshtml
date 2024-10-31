@@ -1,0 +1,70 @@
+﻿@model BurgerMenu.Entities.Message
+
+
+<div class="container">
+    <div class="row">
+        <!-- Başlık Kartı -->
+        <div class="col-md-6">
+            <div class="card text-center p-3 mb-3">
+                <h5 class="card-title" style="color: #3498db;">Başlık</h5>
+                <p class="card-text"><strong>@Model.Title</strong></p>
+            </div>
+        </div>
+        <!-- Tarih Kartı -->
+        <div class="col-md-6">
+            <div class="card text-center p-3 mb-3">
+                <h5 class="card-title" style="color: #e74c3c;">Tarih</h5>
+                <p class="card-text"><strong>@Model.SendDate.ToString("dd/MM/yyyy")</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Gönderen Bilgisi -->
+        <div class="col-md-12">
+            <div class="card p-3 mb-3">
+                <h5 class="card-title" style="color: #2ecc71;">Gönderen</h5>
+                <p class="card-text"><strong>@Model.SenderEmail</strong></p>
+            </div>
+        </div>
+        <!-- Mesaj İçeriği -->
+        <div class="col-md-12">
+            <div class="card p-3 mb-3">
+                <h5 class="card-title" style="color: #f39c12;">Mesaj İçeriği</h5>
+                <p class="card-text" style="min-height: 100px; white-space: pre-wrap;"><strong>@Model.Content</strong></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#detailModal form').on('submit', function (event) {
+            event.preventDefault(); // Prevent default form submission
+            $.ajax({
+                type: 'POST',
+                url: $(this).attr('action'), // Get action URL
+                data: $(this).serialize(), // Serialize form data
+                success: function (result) {
+                    // Handle success response (e.g., show success message, close modal)
+                    $('#detailModal .modal-body').html(result);
+                    $('#detailModal').modal('show');
+                    $('body').removeClass('modal-open');
+                    $('.modal-backdrop').remove();
+                    $('.close').on('click', function () {
+                        $('#detailModal').modal('hide');
+                    });
+                },
+                error: function (xhr, status, error) {
+                    // Handle error response (e.g., show error message)
+                }
+            });
+        });
+    });
+</script>

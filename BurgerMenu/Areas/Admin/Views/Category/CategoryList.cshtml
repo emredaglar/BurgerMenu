@@ -27,15 +27,15 @@
                             <tr>
                                 <td>@item.CategoryId</td>
                                 <td>@item.CategoryName</td>
-                                <td><a href="#" class="btn btn-warning">Kategori Ürünleri</a></td>
-                                <td><a href="#" class="btn btn-danger">Sil</a></td>
-                                <td><a href="#" class="btn btn-success">Güncelle</a></td>
+                                <td><a href="#" class="btn btn-warning">Ürünleri Listele</a></td>
+                                <td><a href="/Admin/Category/DeleteCategory/@item.CategoryId" class="btn btn-danger">Sil</a></td>
+                                <td><a href="/Admin/Category/UpdateCategory/@item.CategoryId" class="btn btn-success">Güncelle</a></td>
                             </tr>
                         }
 
                     </tbody>
                 </table>
-                <a href="#" class="btn btn-primary">Yeni Kategori Girişi</a>
+                <a href="/Admin/Category/CreateCategory/" class="btn btn-primary">Yeni Kategori Girişi</a>
             </div>
         </div>
     </div>

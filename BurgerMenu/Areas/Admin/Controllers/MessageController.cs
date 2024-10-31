@@ -43,5 +43,12 @@ namespace BurgerMenu.Areas.Admin.Controllers
             context.SaveChanges();
             return RedirectToAction("SendBox","Message",new {area="Admin"});
         }
+        public PartialViewResult PartialDetailMessage(int id)
+        {
+            var message = context.Messages.Find(id);
+
+            return PartialView("PartialDetailMessage",message);
+        }
+
     }
 }

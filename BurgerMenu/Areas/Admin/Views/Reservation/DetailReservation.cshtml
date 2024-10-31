@@ -1,0 +1,125 @@
+﻿@model BurgerMenu.Entities.Reservation
+
+@{
+    ViewBag.Title = "DetailReservation";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+<style>
+    .input-group {
+        display: flex;
+        align-items: stretch; /* Yükseklikleri eşitlemek için */
+    }
+
+        .input-group .form-control {
+            margin-right: 5px; /* Aradaki boşluğu ayarlamak için */
+        }
+
+            .input-group .form-control:last-child {
+                margin-right: 0; /* Son kutunun sağındaki boşluğu kaldır */
+            }
+
+    .btn-fw {
+        display: inline-block; /* Butonun kutucuk gibi görünmesini sağlamak için */
+        border-radius: 5px; /* Kenarları yuvarlaklaştırmak için */
+        padding: 10px 20px; /* İç boşluk ayarlamak için */
+        margin-bottom: 30px
+    }
+
+    .text-center {
+        display: flex;
+        justify-content: center; /* Yatayda ortalar */
+        align-items: center; /* Dikeyde ortalar */
+    }
+</style>
+
+<br />
+<form method="post" action="@Url.Action("DetailReservation", "Reservation", new { area = "Admin"})">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Rezervasyon Detayları</h4>
+                <p class="card-description"></p>
+                <div class="col-md-12 grid-margin-lg-0 grid-margin stretch-card">
+
+                    <div class="card">
+
+                        <div class="card-body">
+                            <div class="form-group row">
+
+                                <div class="col">
+                                    <label>Rezervasyon ID</label>
+                                    <div id="the-basics">
+                                        @Html.HiddenFor(x => x.ReservationId)
+                                        <input class="typeahead" type="text" placeholder="@Html.DisplayFor(x=>x.ReservationId)" readonly>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <label>Rezervasyon Sahibi</label>
+                                    <div id="the-basics">
+                                        <div class="input-group">
+                                            @Html.TextBoxFor(x => x.Name, new { @class = "form-control"  })
+                                            @Html.TextBoxFor(x => x.Surname, new { @class = "form-control" })
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <label>Email</label>
+                                    <div id="bloodhound">
+                                        @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <label>Telefon</label>
+                                    <div id="bloodhound">
+                                        @Html.TextBoxFor(x => x.Phone, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <label>Kişi Sayısı</label>
+                                    <div id="bloodhound">
+                                        @Html.TextBoxFor(x => x.PeopleCount, new { @class = "form-control" })
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col">
+                                <div class="col">
+                                    <label>Rezervasyon Tarihi</label>
+                                    <div id="bloodhound">
+                                        @Html.TextBoxFor(x => x.ReservationDate, Model.ReservationDate.ToString("dd/MM/yyyy"), new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="col">
+                                    <label>Rezervasyon Zamanı</label>
+                                    <div id="bloodhound">
+                                        @Html.TextBoxFor(x => x.Time, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <br />
+
+                                <br />
+                                <div id="bloodhound" class="col">
+                                    <label>Rezervasyon Mesajı</label>
+                                    @Html.TextAreaFor(x => x.Message, new { @class = "form-control", rows = 5 })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-outline-success btn-fw" style="width: 200px;">Güncelle</button>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</form>

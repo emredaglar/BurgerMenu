@@ -7,10 +7,44 @@
 
 
 
+<style>
+    .message-onemli {
+        background-color: #F9EBEA; /* Red */
+    }
+
+    .message-merhaba {
+        background-color: #F9EBEA; /* Blue */
+    }
+
+    .message-deneme {
+        background-color: #D4E6F1; /* Green */
+    }
+
+    .message-soru {
+        background-color: #D5F5E3; /* Green */
+    }
+
+    .message-selam {
+        background-color: #F5EEF8; /* Green */
+    }
+
+    .message-kontrol {
+        background-color: #FDEDEC; /* Green */
+    }
+
+    .message-test {
+        background-color: #FDF2E9; /* Green */
+    }
+
+    .message-other {
+        background-color: #EBF5FB; /* Yellow */
+    }
+</style>
+
 <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Gelen Kutusu</h4>
+            <h4 class="card-title">Gelen Mesajlar Sayfası</h4>
             <p class="card-description">
             </p>
             <div class="table-responsive">
@@ -27,22 +61,106 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
+                            string messageClass = "";
+
+                            switch (item.Title.ToLower())
+                            {
+                                case "onemli":
+                                    messageClass = "message-onemli";
+                                    break;
+                                case "merhaba":
+                                    messageClass = "message-merhaba";
+                                    break;
+                                case "deneme":
+                                    messageClass = "message-deneme";
+                                    break;
+
+                                case "soru":
+                                    messageClass = "message-soru";
+                                    break;
+                                case "selam":
+                                    messageClass = "message-selam";
+                                    break;
+                                case "kontrol":
+                                    messageClass = "message-kontrol";
+                                    break;
+                                case "test":
+                                    messageClass = "message-test";
+                                    break;
+                                default:
+                                    messageClass = "message-other";
+                                    break;
+                            }
+
+
                             count++;
                             <tr>
                                 <td>@count</td>
                                 <td>@item.SenderEmail</td>
-                                <td>@item.Title</td>
+                                <td class="@messageClass">@item.Title</td>
                                 <td>@item.SendDate.ToShortDateString()</td>
-                                <td><a href="#" class="btn btn-warning">Mesajı Aç</a></td>
-                              
+                                <td><a href="#" class="btn btn-primary open-modal" data-id="@item.MessageId">Mesajı Aç</a></td>
                             </tr>
                         }
-
                     </tbody>
                 </table>
-              
+                <a href="@Url.Action("NewMessage","Message",new { area = "Admin" })" class="btn btn-info">Yeni Mesaj Gönderin</a>
             </div>
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="detailModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12 p-5">
+                        <button type="button" class="close" data-dismiss="modal" data-target="#detailModal" aria-label="Close">
+                            <small>Vazgeç </small><span aria-hidden="true">&times;</span>
+                        </button>
+                        <h1 class="mb-4">Mesaj Detayı</h1>
+
+                        <div id="modalContent" class="modal-dialog modal-xl">
+                            <!-- AJAX ile yüklenecek içerik burada görünecek -->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<script>
+   $(document).ready(function () {
+    $('.open-modal').on('click', function (event) {
+        event.preventDefault();
+        var messageId = $(this).data('id');
+        var url = '@Url.Action("PartialDetailMessage", "Message", new { area = "Admin" })';
+
+        $.ajax({
+            type: 'GET',
+            url: url,
+            data: { id: messageId },
+            success: function (result) {
+                console.log("Başarılı yanıt:", result); // Yanıtı konsola yazdır
+                $('#modalContent').html(result); // Modal içeriğini güncelle
+                $('#detailModal').modal('show'); // Modali göster
+                $('.close').on('click', function () {
+                    $('#detailModal').modal('hide');
+                });
+            },
+            error: function (xhr, status, error) {
+                console.error("AJAX hatası:", error); // Hata mesajını konsola yazdır
+            }
+        });
+    });
+});
+</script>
+
 
