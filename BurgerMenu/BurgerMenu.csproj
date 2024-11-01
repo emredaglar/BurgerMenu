@@ -440,6 +440,10 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\cdnlogo.com_chip.svg" />
+    <Content Include="Content\pngwing.com.png" />
+    <Content Include="Content\style.css" />
+    <Content Include="Content\wifi.svg" />
     <Content Include="eatwell-master\.gitattributes" />
     <Content Include="eatwell-master\css\ajax-loader.gif" />
     <Content Include="eatwell-master\css\animate.css" />
@@ -2007,6 +2011,7 @@
     <Content Include="Areas\Admin\Views\Category\CategoryProducts.cshtml" />
     <Content Include="Areas\Admin\Views\Dashboard\Dashboard.cshtml" />
     <Content Include="Areas\Admin\Views\CreditCard\Index.cshtml" />
+    <None Include="Areas\Admin\Views\CreditCard\CC.scss" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
