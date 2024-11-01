@@ -18,7 +18,7 @@ namespace BurgerMenu.Controllers
             return PartialView();
         }
         [HttpPost]
-        [Route("Contact/PartialReservationn")]
+        [Route("Reservation/PartialReservationn")]
         public PartialViewResult PartialReservationn(Reservation reservation)
         {
            

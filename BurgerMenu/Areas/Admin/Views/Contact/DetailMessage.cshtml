@@ -1,0 +1,48 @@
+﻿@model BurgerMenu.Entities.Contact
+@{
+    ViewBag.Title = "DetailMessage";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+<br />
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Mesaj Detayları</h4>
+            <p class="card-description"></p>
+            <div class="col-md-12 grid-margin-lg-0 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="form-group row">
+                            <div class="col">
+                                <label>Gönderen</label>
+                                <div id="the-basics">
+                                    <input class="typeahead" type="text" placeholder="@Html.DisplayFor(x=>x.Name)" readonly>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label>Email</label>
+                                <div id="bloodhound">
+                                    <input class="typeahead" type="text" placeholder="@Html.DisplayFor(x=>x.Email)" readonly>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label>Tarih</label>
+                                <div id="bloodhound">
+                                    <input class="typeahead" type="text" placeholder="@Model.SendDate.ToString("dd/MM/yyyy")" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="">
+                            <p class="card-description">Mesaj</p>
+                            <div id="bloodhound">
+                                <textarea class="form-control" rows="5" readonly>@Html.DisplayFor(x => x.Message)</textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

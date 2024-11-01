@@ -1,44 +1,53 @@
 ﻿@model BurgerMenu.Entities.Message
 
+<style>
+    .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .card:hover {
+            transform: scale(1.05); /* Kart büyümesi */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Gölge efekti */
+        }
+</style>
 
 <div class="container">
-    <div class="row">
+    <div class="row mb-3">
         <!-- Başlık Kartı -->
         <div class="col-md-6">
-            <div class="card text-center p-3 mb-3">
-                <h5 class="card-title" style="color: #3498db;">Başlık</h5>
-                <p class="card-text"><strong>@Model.Title</strong></p>
+            <div class="card text-center p-2 mb-3" style="background-color: #f1f1f1; border: 2px solid #3498db;">
+                <h5 class="card-title" style="color: #3498db; font-size: 1.2em;">Başlık</h5>
+                <p class="card-text"><strong style="font-size: 1.3em;">@Model.Title</strong></p>
             </div>
         </div>
         <!-- Tarih Kartı -->
         <div class="col-md-6">
-            <div class="card text-center p-3 mb-3">
-                <h5 class="card-title" style="color: #e74c3c;">Tarih</h5>
-                <p class="card-text"><strong>@Model.SendDate.ToString("dd/MM/yyyy")</strong></p>
+            <div class="card text-center p-2 mb-3" style="background-color: #f1f1f1; border: 2px solid #e74c3c;">
+                <h5 class="card-title" style="color: #e74c3c; font-size: 1.2em;">Tarih</h5>
+                <p class="card-text"><strong style="font-size: 1.3em;">@Model.SendDate.ToString("dd/MM/yyyy")</strong></p>
             </div>
         </div>
     </div>
 
-    <div class="row">
+    <div class="row mb-3">
         <!-- Gönderen Bilgisi -->
         <div class="col-md-12">
-            <div class="card p-3 mb-3">
-                <h5 class="card-title" style="color: #2ecc71;">Gönderen</h5>
-                <p class="card-text"><strong>@Model.SenderEmail</strong></p>
+            <div class="card p-2 mb-3" style="background-color: #f1f1f1; border: 2px solid #2ecc71;">
+                <h5 class="card-title" style="color: #2ecc71; font-size: 1.2em;">Gönderen</h5>
+                <p class="card-text"><strong style="font-size: 1.2em;">@Model.SenderEmail</strong></p>
             </div>
         </div>
         <!-- Mesaj İçeriği -->
         <div class="col-md-12">
-            <div class="card p-3 mb-3">
-                <h5 class="card-title" style="color: #f39c12;">Mesaj İçeriği</h5>
-                <p class="card-text" style="min-height: 100px; white-space: pre-wrap;"><strong>@Model.Content</strong></p>
+            <div class="card p-2 mb-3" style="background-color: #f1f1f1; border: 2px solid #f39c12;">
+                <h5 class="card-title" style="color: #f39c12; font-size: 1.2em;">Mesaj İçeriği</h5>
+                <p class="card-text" style="min-height: 100px; white-space: pre-wrap; font-size: 1em;">
+                    <strong>@Model.Content</strong>
+                </p>
             </div>
         </div>
     </div>
 </div>
-
-
-
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

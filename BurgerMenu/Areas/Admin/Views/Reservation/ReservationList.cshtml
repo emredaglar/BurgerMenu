@@ -66,12 +66,17 @@
                                 </td>
 
                                 @*Detaylar*@
-                                <td><a href="@Url.Action("DetailReservation", "Reservation", new { area = "Admin", id = item.ReservationId })" type="button" class="btn btn-outline-secondary btn-icon-text"> <i class="mdi mdi-file-check btn-icon-append"></i></a></td>
+                                <td>
+                                    <a href="@Url.Action("DetailReservation", "Reservation", new { area = "Admin", id = item.ReservationId })" type="button" class="btn btn-outline-primary btn-icon-text">
+                                        <i class="mdi mdi-file-check btn-icon-prepend"></i>
+                                        Detay
+                                    </a>
+                                </td>
 
 
                                 <td><a href="@Url.Action("StatusChangeToConfirm", "Reservation", new { area = "Admin", id = item.ReservationId })" class="btn btn-inverse-primary btn-fw">Onayla</a></td>
                                 <td><a href="@Url.Action("StatusChangeToWait", "Reservation", new { area = "Admin", id = item.ReservationId })" class="btn btn-inverse-info btn-fw">Onayı Beklet</a></td>
-                                <td><a href="@Url.Action("StatusChangeToCame", "Reservation", new { area = "Admin", id = item.ReservationId })" class="btn btn-inverse-dark btn-fw">Müşteri Gelmedi</a></td>
+                                <td><a href="@Url.Action("StatusChangeToCame", "Reservation", new { area = "Admin", id = item.ReservationId })" class="btn btn-inverse-dark btn-fw">Gelmedi</a></td>
                                 <td><a href="@Url.Action("StatusChangeToCancel", "Reservation", new { area = "Admin", id = item.ReservationId })" class="btn btn-inverse-danger btn-fw">İptal Et</a></td>
 
 

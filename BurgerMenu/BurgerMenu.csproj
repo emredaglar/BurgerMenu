@@ -131,11 +131,15 @@
     <Compile Include="Areas\Admin\Controllers\AboutController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminLayoutController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ContactController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CreditCardController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Admin\Controllers\MessageController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProfilesController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProfilessController.cs" />
     <Compile Include="Areas\Admin\Controllers\ReservationController.cs" />
+    <Compile Include="Areas\Admin\Controllers\StatisticsController.cs" />
     <Compile Include="Context\BurgerMenuContext.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\Default1Controller.cs" />
@@ -208,6 +212,10 @@
     <Compile Include="Migrations\202410240903173_mig19.cs" />
     <Compile Include="Migrations\202410240903173_mig19.Designer.cs">
       <DependentUpon>202410240903173_mig19.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202410311608498_mig20.cs" />
+    <Compile Include="Migrations\202410311608498_mig20.Designer.cs">
+      <DependentUpon>202410311608498_mig20.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1992,6 +2000,13 @@
     <Content Include="Areas\Admin\Views\Reservation\DetailReservation.cshtml" />
     <Content Include="Areas\Admin\Views\About\AboutList.cshtml" />
     <Content Include="Areas\Admin\Views\About\CreateAbout.cshtml" />
+    <Content Include="Areas\Admin\Views\About\UpdateAbout.cshtml" />
+    <Content Include="Areas\Admin\Views\Contact\InboxContact.cshtml" />
+    <Content Include="Areas\Admin\Views\Contact\DetailMessage.cshtml" />
+    <Content Include="Areas\Admin\Views\Statistics\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\CategoryProducts.cshtml" />
+    <Content Include="Areas\Admin\Views\Dashboard\Dashboard.cshtml" />
+    <Content Include="Areas\Admin\Views\CreditCard\Index.cshtml" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -2116,6 +2131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202410240903173_mig19.resx">
       <DependentUpon>202410240903173_mig19.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410311608498_mig20.resx">
+      <DependentUpon>202410311608498_mig20.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

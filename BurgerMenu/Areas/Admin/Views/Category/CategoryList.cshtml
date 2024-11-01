@@ -27,7 +27,7 @@
                             <tr>
                                 <td>@item.CategoryId</td>
                                 <td>@item.CategoryName</td>
-                                <td><a href="#" class="btn btn-warning">Ürünleri Listele</a></td>
+                                <td><a href="@Url.Action("CategoryProducts", "Category", new { id = item.CategoryId })" class="btn btn-dark">İlgili Ürünler</a></td>
                                 <td><a href="/Admin/Category/DeleteCategory/@item.CategoryId" class="btn btn-danger">Sil</a></td>
                                 <td><a href="/Admin/Category/UpdateCategory/@item.CategoryId" class="btn btn-success">Güncelle</a></td>
                             </tr>

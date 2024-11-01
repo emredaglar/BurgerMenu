@@ -18,6 +18,7 @@
                             <th>Ürün Görsel</th>
                             <th>Ürün Adı</th>
                             <th>Ürün Kategori</th>
+                            <th>İndirim</th>
                             <th>Sil</th>
                             <th>Güncelle</th>
                         </tr>
@@ -30,6 +31,16 @@
                                 <td><img src="@item.ImageUrl" height="50" width="50" /></td>
                                 <td>@item.ProductName</td>
                                 <td>@item.Category.CategoryName</td>
+                                @if (item.DealofTheDay == true)
+                                {
+
+
+                                    <td><a href="/Admin/Products/DealOfTheDayToFalse/@item.ProductId" class="btn btn-dark">İndirimi İptal Et</a></td>
+                                }
+                                else
+                                {
+                                    <td><a href="/Admin/Products/DealOfTheDayToTrue/@item.ProductId" class="btn btn-warning">İndirimi Aktif Et</a></td>
+                                }
                                 <td><a href="/Admin/Products/DeleteProduct/@item.ProductId" class="btn btn-danger">Sil</a></td>
                                 <td><a href="/Admin/Products/UpdateProduct/@item.ProductId" class="btn btn-success">Güncelle</a></td>
                             </tr>

@@ -13,7 +13,7 @@ namespace BurgerMenu.Areas.Admin.Controllers
     {
         // GET: Admin/Reservation
         BurgerMenuContext context = new BurgerMenuContext();
-        public ActionResult ReservationList(int page = 1)
+        public ActionResult ReservationList()
         {
             var values = context.Reservations.ToList();
             return View(values);

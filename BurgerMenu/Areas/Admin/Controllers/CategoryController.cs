@@ -51,5 +51,10 @@ namespace BurgerMenu.Areas.Admin.Controllers
             return RedirectToAction("CategoryList");
 
         }
-    }
+		public ActionResult CategoryProducts(int id)
+		{
+			var value = context.Products.Where(y => y.CategoryId == id).ToList();
+			return View(value);
+		}
+	}
 }

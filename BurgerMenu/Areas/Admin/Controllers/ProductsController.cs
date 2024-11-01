@@ -68,5 +68,20 @@ namespace BurgerMenu.Areas.Admin.Controllers
             context.SaveChanges();
             return RedirectToAction("ProductList");
         }
-    }
+		public ActionResult DealOfTheDayToFalse(int id)
+		{
+			var value = context.Products.Where(x => x.ProductId == id).FirstOrDefault();
+			value.DealofTheDay = false;
+			context.SaveChanges();
+			return RedirectToAction("ProductList", "Products");
+		}
+
+		public ActionResult DealOfTheDayToTrue(int id)
+		{
+			var value = context.Products.Where(x => x.ProductId == id).FirstOrDefault();
+			value.DealofTheDay = true;
+			context.SaveChanges();
+			return RedirectToAction("ProductList", "Products");
+		}
+	}
 }
