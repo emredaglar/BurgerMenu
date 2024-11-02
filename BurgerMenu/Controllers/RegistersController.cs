@@ -10,17 +10,19 @@ namespace BurgerMenu.Controllers
 {
     public class RegistersController : Controller
     {
-        BurgerMenuContext context = new BurgerMenuContext();
-        public ActionResult Index()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult Index(Admin admin)
-        {
-            context.Admins.Add(admin);
-            context.SaveChanges();
-            return RedirectToAction("Index", "Loginss");
-        }
-    }
+		// GET: Registers
+		BurgerMenuContext context = new BurgerMenuContext();
+		public ActionResult Index()
+		{
+			return View();
+		}
+
+		[HttpPost]
+		public ActionResult Index(Admin admin)
+		{
+			context.Admins.Add(admin);
+			context.SaveChanges();
+			return RedirectToAction("Index", "Loginss");
+		}
+	}
 }

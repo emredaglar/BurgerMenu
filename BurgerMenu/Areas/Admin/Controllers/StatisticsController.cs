@@ -11,7 +11,7 @@ namespace BurgerMenu.Areas.Admin.Controllers
     {
 		// GET: Admin/Statistics
 		BurgerMenuContext context = new BurgerMenuContext();
-		public ActionResult Index()
+		public ActionResult StatisticsList()
 		{
 			ViewBag.canceledReservations = context.Reservations.Where(x => x.ReservationStatus == "İptal Edildi").Count();
 			ViewBag.acceptedReservations = context.Reservations.Where(x => x.ReservationStatus == "Onaylandı").Count();

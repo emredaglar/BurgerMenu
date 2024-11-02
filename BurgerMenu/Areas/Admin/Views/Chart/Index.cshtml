@@ -1,0 +1,268 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Kategori-Ürün Grafiği</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <style>
+        .card {
+            height: 400px; /* Set a fixed height for the card */
+        }
+
+        #pieChart, #barChart, #lineChart, #doughnutChart {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="col-lg-6 grid-margin grid-margin-lg-0 stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Bar Chart</h4>
+                <canvas id="barChart"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 grid-margin grid-margin-lg-0 stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Pie Chart</h4>
+                <canvas id="pieChart"></canvas>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class="col-lg-6 grid-margin grid-margin-lg-0 stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Line Chart</h4>
+                <canvas id="lineChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6 grid-margin grid-margin-lg-0 stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Doughnut Chart</h4>
+                <canvas id="doughnutChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+<script>
+
+// Modern renk paleti
+var modernColors = [
+    'rgba(100, 149, 237, 0.7)', // Cornflower Blue
+    'rgba(255, 182, 193, 0.7)', // Light Pink
+    'rgba(144, 238, 144, 0.7)', // Light Green
+    'rgba(255, 228, 181, 0.7)', // Moccasin
+    'rgba(135, 206, 235, 0.7)', // Sky Blue
+    'rgba(221, 160, 221, 0.7)', // Plum
+    'rgba(250, 128, 114, 0.7)', // Salmon
+    'rgba(176, 196, 222, 0.7)', // Light Steel Blue
+    'rgba(238, 130, 238, 0.7)'  // Violet
+];
+
+// PIE CHART
+$(document).ready(function () {
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        contentType: "application/json",
+        url: '@Url.Action("ReservationStatusChart", "Chart", new { area = "Admin" })',
+        success: function (result) {
+            drawPieChart(result);
+        },
+        error: function (xhr, status, error) {
+            console.error("AJAX Hatası:", status, error);
+        }
+    });
+});
+
+function drawPieChart(result) {
+    var labels = [];
+    var dataValues = [];
+
+    $.each(result, function (i, obj) {
+        labels.push(obj.ReservationStatus);
+        dataValues.push(obj.ReservationCount);
+    });
+
+    var ctx = document.getElementById('pieChart').getContext('2d');
+    var myPieChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Ürün Sayısı',
+                data: dataValues,
+                backgroundColor: modernColors,
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            title: {
+                display: true,
+                text: 'Rezervasyon Durum Grafiği'
+            },
+        }
+    });
+}
+
+// BAR CHART
+$(document).ready(function () {
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        contentType: "application/json",
+        url: '@Url.Action("CategoryProductChart", "Chart", new { area = "Admin" })',
+        success: function (result) {
+            drawBarChart(result);
+        },
+        error: function (xhr, status, error) {
+            console.error("AJAX Hatası:", status, error);
+        }
+    });
+});
+
+function drawBarChart(result) {
+    var labels = [];
+    var dataValues = [];
+
+    $.each(result, function (i, obj) {
+        labels.push(obj.CategoryName);
+        dataValues.push(obj.ProductCount);
+    });
+
+    var ctx = document.getElementById('barChart').getContext('2d');
+    var myBarChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Ürün Sayısı',
+                data: dataValues,
+                backgroundColor: modernColors,
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            title: {
+                display: true,
+                text: 'Kategori-Ürün Grafiği'
+            },
+        }
+    });
+}
+
+// LINE CHART
+$(document).ready(function () {
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        contentType: "application/json",
+        url: '@Url.Action("ReservationChart", "Chart", new { area = "Admin" })',
+        success: function (result) {
+            drawLineChart(result);
+        },
+        error: function (xhr, status, error) {
+            console.error("AJAX Hatası:", status, error);
+        }
+    });
+});
+
+function drawLineChart(result) {
+    var labels = [];
+    var dataValues = [];
+
+    $.each(result, function (i, obj) {
+        labels.push(obj.ReservationDate);
+        dataValues.push(obj.ReservationCount);
+    });
+
+    var ctx = document.getElementById('lineChart').getContext('2d');
+    var myLineChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Rezervasyon Saatleri',
+                data: dataValues,
+                backgroundColor: 'rgba(100, 149, 237, 0.3)',
+                borderColor: 'rgba(100, 149, 237, 0.7)',
+                pointBackgroundColor: 'rgba(100, 149, 237, 1)',
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            title: {
+                display: true,
+                text: 'Rezervasyon Yoğunluk Grafiği'
+            },
+        }
+    });
+}
+
+// DOUGHNUT CHART
+$(document).ready(function () {
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        contentType: "application/json",
+        url: '@Url.Action("DealofTheDaysCategory", "Chart", new { area = "Admin" })',
+        success: function (result) {
+            drawDoughnutChart(result);
+        },
+        error: function (xhr, status, error) {
+            console.error("AJAX Hatası:", status, error);
+        }
+    });
+});
+
+function drawDoughnutChart(result) {
+    var labels = [];
+    var dataValues = [];
+
+    $.each(result, function (i, obj) {
+        labels.push(obj.DealName);
+        dataValues.push(obj.DealCategory);
+    });
+
+    var ctx = document.getElementById('doughnutChart').getContext('2d');
+    var myDoughnutChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Kategori Sayısı',
+                data: dataValues,
+                backgroundColor: modernColors,
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            title: {
+                display: true,
+                text: 'Stok Grafiği'
+            },
+        }
+    });
+}
+
+</script>

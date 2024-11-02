@@ -18,7 +18,7 @@
                             <th>Mesaj ID</th>
                             <th>Gönderen</th>
                             <th>Email Adresi</th>
-                            <th>Gönderim Tarihi</th>
+                       
                             <th>Durum</th>
                             <th>Sil</th>
                             <th>Mesaj Detayları</th>
@@ -31,7 +31,7 @@
                                 <td>@item.ContactId</td>
                                 <td>@item.Name</td>
                                 <td>@item.Email</td>
-                                <td>@item.SendDate.ToString("dd / MM / yyyy")</td>
+
                                 @if (item.IsRead == false)
                                 {
                                     <td><a href="@Url.Action("MessageStatusChangeToTrue", "Contact", new { area = "Admin", id = item.ContactId })" class="btn btn-inverse-primary btn-fw">Okundu Olarak İşaretle</a></td>

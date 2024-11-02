@@ -1,0 +1,100 @@
+﻿@model List<BurgerMenu.Entities.Reservation>
+
+<div class="modal fade" id="reservationModal" tabindex="-1" role="dialog" aria-labelledby="reservationModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="bg-image" style="background-image: url(/eatwell-master/images/reservation_1.jpg);"></div>
+                    </div>
+                    <div class="col-lg-12 p-5">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <small>Vazgeç </small><span aria-hidden="true">&times;</span>
+                        </button>
+                        <h1 class="mb-4">Bir Masa Ayırın</h1>
+                        <form method="post" action="@Url.Action("ReservationModal", "Reservation")">
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label for="m_fname">Adınız</label>
+                                    <input type="text" name="Name" class="form-control" id="m_fname">
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for="m_lname">Soyadınız</label>
+                                    <input type="text" name="Surname" class="form-control" id="m_lname">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+                                    <label for="m_email">Email Adresiniz</label>
+                                    <input type="email" name="Email" class="form-control" id="m_email">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label for="m_people">Kaç Kişisiniz</label>
+                                    <select name="PeopleCount" id="m_people" class="form-control">
+                                        <option value="1">1 Kişi</option>
+                                        <option value="2">2 Kişi</option>
+                                        <option value="3">3 Kişi</option>
+                                        <option value="4">4+ Kişi</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for="m_phone">Telefon</label>
+                                    <input type="text" name="Phone" class="form-control" id="m_phone">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label for="m_date">Tarih</label>
+                                    <input type="text" name="ReservationDate" class="form-control" id="m_date">
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for="m_time">Saat</label>
+                                    <input type="text" name="Time" class="form-control" id="m_time">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+                                    <label for="m_message">Mesajınız</label>
+                                    <textarea class="form-control" name="Message" id="m_message" cols="30" rows="7"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+                                    <input type="submit" class="btn btn-primary btn-lg btn-block" value="Rezervasyon Yap">
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/jquery-3.7.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#reservationModal form').on('submit', function (event) {
+            event.preventDefault(); // Prevent default form submission
+            $.ajax({
+                type: 'POST',
+                url: $(this).attr('action'), // Get action URL
+                data: $(this).serialize(), // Serialize form data
+                success: function (result) {
+                    // Handle success response (e.g., show success message, close modal)
+                    $('#reservationModal').modal('hide');
+                },
+                error: function (xhr, status, error) {
+                    // Handle error response (e.g., show error message)
+                }
+            });
+        });
+    });
+</script>

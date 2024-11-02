@@ -22,8 +22,10 @@
         </ul>
         <ul class="navbar-nav navbar-nav-right">
             <li class="nav-item dropdown d-lg-flex d-none">
-                <button type="button" class="btn btn-info font-weight-bold"style="background-color: #1252c4; ">+ Yeni Rezervasyon Oluştur</button>
+             
+                <button type="button" class="btn btn-info font-weight-bold" data-toggle="modal" data-target="#reservationModal">+ Yeni Rezervasyon Oluştur</button>
             </li>
+
             <li class="nav-item dropdown d-flex">
                 <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center" id="messageDropdown" href="#" data-toggle="dropdown">
                     <i class="icon-air-play mx-0"></i>
@@ -76,14 +78,15 @@
                     <i class="icon-cog"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-                    <p class="mb-0 font-weight-normal float-left dropdown-header">Settings</p>
-                    <a class="dropdown-item preview-item">
-                        <i class="icon-head"></i> Profile
+                    <p class="mb-0 font-weight-normal float-left dropdown-header">Ayarlar</p>
+                    <a class="dropdown-item preview-item" href="~/Admin/About/AboutList">
+                        <i class="icon-head"></i> Profil
                     </a>
-                    <a class="dropdown-item preview-item">
-                        <i class="icon-inbox"></i> Logout
+                    <a class="dropdown-item preview-item" href="~/Account/Logout">
+                        <i class="icon-inbox"></i> Çıkış
                     </a>
                 </div>
+
             </li>
             <li class="nav-item dropdown mr-4 d-lg-flex d-none">
                 <a class="nav-link count-indicatord-flex align-item s-center justify-content-center" href="#">
@@ -96,3 +99,4 @@
         </button>
     </div>
 </nav>
+@Html.Action("AdminPartialReservationAdd", "AdminLayout")

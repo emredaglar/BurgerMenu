@@ -74,5 +74,22 @@ namespace BurgerMenu.Areas.Admin.Controllers
             context.SaveChanges();
             return RedirectToAction("ReservationList");
         }
-    }
+		[HttpGet]
+		public PartialViewResult ReservationModal()
+		{
+			return PartialView();
+		}
+		[HttpPost]
+		//[Route("Reservation/PartialReservationn")]
+		public PartialViewResult ReservationModal(Reservation reservation)
+		{
+
+			reservation.ReservationStatus = "Onay Bekleniyor";
+			//reservation.ReservationDate = DateTime.Now;
+			//reservation.PeopleCount = 2;
+			context.Reservations.Add(reservation);
+			context.SaveChanges();
+			return PartialView();
+		}
+	}
 }

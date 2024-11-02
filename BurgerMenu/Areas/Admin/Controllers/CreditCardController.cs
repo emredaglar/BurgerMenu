@@ -9,7 +9,7 @@ namespace BurgerMenu.Areas.Admin.Controllers
     public class CreditCardController : Controller
     {
         // GET: Admin/CreditCard
-        public ActionResult Index()
+        public ActionResult CreditCard()
         {
             return View();
         }

@@ -15,10 +15,10 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th>Hakkımızda ID</th>
-                            <th>Üst Başlık</th>
+                            <th>ID</th>
                             <th>Başlık</th>
                             <th>Açıklama</th>
+                         
                             <th>Sil</th>
                             <th>Güncelle</th>
                         </tr>
@@ -30,7 +30,7 @@
                                 <td>@item.AboutId</td>
                                 <td>@item.About1</td>
                                 <td>@item.About2</td>
-                                <td>@item.Description</td>
+                              
                                 <td><a href="@Url.Action("DeleteAbout", "About", new { area = "Admin", id = item.AboutId })" class="btn btn-danger">Sil</a></td>
                                 <td><a href="@Url.Action("UpdateAbout", "About", new { area = "Admin", id = item.AboutId })" class="btn btn-success">Güncelle</a></td>
                             </tr>

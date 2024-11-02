@@ -25,12 +25,18 @@ namespace BurgerMenu.Controllers
             {
                 FormsAuthentication.SetAuthCookie(values.UserName, true);
                 Session["x"] = values.UserName.ToString();
-                return RedirectToAction("ProductList", "Products", new { area = "Admin" });
+                return RedirectToAction("Dashboard", "Dashboard", new { area = "Admin" });
             }
             else
             {
                 return View();
             }
         }
-    }
+		public ActionResult LogOut()
+		{
+			FormsAuthentication.SignOut();
+			Session.Abandon();
+			return RedirectToAction("Index", "Loginss");
+		}
+	}
 }

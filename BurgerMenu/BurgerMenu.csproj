@@ -131,6 +131,7 @@
     <Compile Include="Areas\Admin\Controllers\AboutController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminLayoutController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ChartController.cs" />
     <Compile Include="Areas\Admin\Controllers\ContactController.cs" />
     <Compile Include="Areas\Admin\Controllers\CreditCardController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
@@ -467,6 +468,11 @@
     <Content Include="eatwell-master\images\offer_1.jpg" />
     <Content Include="eatwell-master\images\offer_2.jpg" />
     <Content Include="eatwell-master\images\offer_3.jpg" />
+    <Content Include="eatwell-master\images\116.jpg" />
+    <Content Include="eatwell-master\images\117.jpg" />
+    <Content Include="eatwell-master\images\118.jpg" />
+    <Content Include="eatwell-master\images\119.jpg" />
+    <Content Include="eatwell-master\images\a1.jpg" />
     <Content Include="eatwell-master\images\reservation_1.jpg" />
     <Content Include="eatwell-master\index.html" />
     <Content Include="eatwell-master\js\bootstrap-datepicker.js" />
@@ -491,9 +497,16 @@
     <Content Include="regal\docs\documentation.html" />
     <Content Include="regal\docs\documentation.js" />
     <Content Include="regal\gulpfile.js" />
+    <Content Include="regal\images\auth\a.jpg" />
     <Content Include="regal\images\auth\lockscreen-bg.jpg" />
     <Content Include="regal\images\auth\login-bg.jpg" />
+    <Content Include="regal\images\auth\111.jpg" />
+    <Content Include="regal\images\auth\112.jpg" />
+    <Content Include="regal\images\auth\113.jpg" />
+    <Content Include="regal\images\auth\114.jpg" />
+    <Content Include="regal\images\auth\115.jpg" />
     <Content Include="regal\images\auth\register-bg.jpg" />
+    <Content Include="regal\images\faces\face11.jpg" />
     <Content Include="regal\images\faces\face1.jpg" />
     <Content Include="regal\images\faces\face13.jpg" />
     <Content Include="regal\images\faces\face2.jpg" />
@@ -503,6 +516,7 @@
     <Content Include="regal\images\faces\face5.jpg" />
     <Content Include="regal\images\faces\face6.jpg" />
     <Content Include="regal\images\faces\face7.jpg" />
+    <Content Include="regal\images\faces\face12.jpeg" />
     <Content Include="regal\images\favicon.png" />
     <Content Include="regal\images\logo-dark.svg" />
     <Content Include="regal\images\logo-mini.svg" />
@@ -2007,11 +2021,14 @@
     <Content Include="Areas\Admin\Views\About\UpdateAbout.cshtml" />
     <Content Include="Areas\Admin\Views\Contact\InboxContact.cshtml" />
     <Content Include="Areas\Admin\Views\Contact\DetailMessage.cshtml" />
-    <Content Include="Areas\Admin\Views\Statistics\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Statistics\StatisticsList.cshtml" />
     <Content Include="Areas\Admin\Views\Category\CategoryProducts.cshtml" />
     <Content Include="Areas\Admin\Views\Dashboard\Dashboard.cshtml" />
-    <Content Include="Areas\Admin\Views\CreditCard\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\CreditCard\CreditCard.cshtml" />
+    <Content Include="Areas\Admin\Views\Chart\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminLayout\AdminPartialReservationAdd.cshtml" />
     <None Include="Areas\Admin\Views\CreditCard\CC.scss" />
+    <Content Include="Areas\Admin\Views\Reservation\ReservationModal.cshtml" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -2053,20 +2070,17 @@
     <Content Include="Views\Contact\PartialContactt.cshtml" />
     <Content Include="Views\Reservation\PartialReservationn.cshtml" />
     <Content Include="Views\Default1\PartialReservation.cshtml" />
-    <Content Include="Views\Contact\aa.cshtml" />
-    <Content Include="Views\Contact\aaa.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Views\Register\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Models\" />
     <Folder Include="regal\.git\objects\info\" />
     <Folder Include="regal\.git\objects\pack\" />
     <Folder Include="regal\.git\refs\tags\" />
     <Folder Include="regal\template\" />
-    <Folder Include="Views\Private2\" />
-    <Folder Include="Views\Privete\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -2167,6 +2181,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
+      <UserProperties regal_4css_4maps_4style_1css_1map__JsonSchema="" />
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

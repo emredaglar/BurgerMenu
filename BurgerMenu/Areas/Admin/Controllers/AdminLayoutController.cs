@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BurgerMenu.Context;
+using BurgerMenu.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,8 +10,9 @@ namespace BurgerMenu.Areas.Admin.Controllers
 {
     public class AdminLayoutController : Controller
     {
-        // GET: Admin/AdminLayout
-        public ActionResult Index()
+		// GET: Admin/AdminLayout
+		BurgerMenuContext context = new BurgerMenuContext();
+		public ActionResult Index()
         {
             return View();
         }
@@ -25,5 +28,18 @@ namespace BurgerMenu.Areas.Admin.Controllers
         {
             return PartialView();
         }
-    }
+		public PartialViewResult AdminPartialReservationAdd()
+		{
+			return PartialView();
+		}
+		[HttpPost]
+		public PartialViewResult AdminPartialReservationAdd(Reservation reservation)
+		{
+			reservation.ReservationStatus = "İşlem Bekliyor...";
+			reservation.Time = "12";
+			context.Reservations.Add(reservation);
+			context.SaveChanges();
+			return PartialView();
+		}
+	}
 }
